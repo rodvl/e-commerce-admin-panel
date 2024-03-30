@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CreateCategoryPayloadDto } from 'src/category/dto/createCategoryPayload.dto';
+import { CreateCategoryPayloadDto } from 'src/modules/category/dto/createCategoryPayload.dto';
 import { Category } from 'src/domain/entity/category.entity';
 import { CategoryRepository } from 'src/domain/repository/category.repository';
 

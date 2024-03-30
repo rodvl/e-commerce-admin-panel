@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { UpdateCategoryPayloadDto } from 'src/category/dto/updateCategoryPayload.dto';
+import { UpdateCategoryPayloadDto } from 'src/modules/category/dto/updateCategoryPayload.dto';
 import { Category } from 'src/domain/entity/category.entity';
 import { CategoryRepository } from 'src/domain/repository/category.repository';
 import { GetCategoryByIdCategoryUseCase } from './getCategoryByid.use-case';
