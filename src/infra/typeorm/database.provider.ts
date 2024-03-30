@@ -15,7 +15,7 @@ export const typeOrmAsyncConfig: TypeOrmModuleAsyncOptions = {
       port: parseInt(configService.get('database.port')),
       username: configService.get('database.username'),
       password: configService.get('database.password'),
-      database: configService.get('database.schema'),
+      database: configService.get('database.database'),
       entities: [__dirname + '/../../**/*.entity{.ts,.js}'],
       synchronize: false,
       migrations: [__dirname + '/migration/*.ts'],
