@@ -11,11 +11,11 @@ export const typeOrmAsyncConfig: TypeOrmModuleAsyncOptions = {
   ): Promise<TypeOrmModuleOptions> => {
     return {
       type: 'postgres',
-      host: configService.get('DATABASE_HOST'),
-      port: parseInt(configService.get('DATABASE_PORT')),
-      username: configService.get('DATABASE_USERNAME'),
-      password: configService.get('DATABASE_PASSWORD'),
-      database: configService.get('DATABASE_SCHEMA'),
+      host: configService.get('database.host'),
+      port: parseInt(configService.get('database.port')),
+      username: configService.get('database.username'),
+      password: configService.get('database.password'),
+      database: configService.get('database.schema'),
       entities: [__dirname + '/../../**/*.entity{.ts,.js}'],
       synchronize: false,
       migrations: [__dirname + '/migration/*.ts'],
