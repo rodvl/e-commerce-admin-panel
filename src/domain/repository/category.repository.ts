@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { DeleteResult, Repository } from 'typeorm';
 import { Category } from '../entity/category.entity';
 import { ICategoryRepository } from './interface/ICategory.repository';
 
@@ -8,10 +8,21 @@ import { ICategoryRepository } from './interface/ICategory.repository';
 export class CategoryRepository implements ICategoryRepository {
   constructor(
     @InjectRepository(Category)
-    private usersRepository: Repository<Category>,
+    private categoryRepository: Repository<Category>,
   ) {}
 
   async findAll(): Promise<Category[]> {
-    return await this.usersRepository.find();
+    return await this.categoryRepository.find();
+  }
+
+  async findById(id: string): Promise<Category> {
+    return await this.categoryRepository.findOne({ where: { id } });
+  }
+
+  async save(data: Category): Promise<Category> {
+    return await this.categoryRepository.save(data);
+  }
+  async delete(id: string): Promise<DeleteResult> {
+    return await this.categoryRepository.delete({ id });
   }
 }
