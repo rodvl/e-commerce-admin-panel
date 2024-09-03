@@ -13,7 +13,7 @@ async function bootstrap() {
     .setVersion('0.1')
     // .addBearerAuth()
     .build();
-
+  app.enableCors();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('/swagger-ui', app, document, {});
   await app.listen(3000);

@@ -19,6 +19,12 @@ export class ProductRepository implements IProductRepository {
     return await this.productRepository.findOne({ where: { id } });
   }
 
+  async findByCategoryId(categoryId: string): Promise<Product[]> {
+    return await this.productRepository.find({
+      where: { categoryId: categoryId },
+    });
+  }
+
   async save(data: Product): Promise<Product> {
     return await this.productRepository.save(data);
   }

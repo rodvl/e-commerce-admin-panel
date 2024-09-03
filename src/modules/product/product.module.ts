@@ -9,6 +9,7 @@ import { DeleteProductUseCase } from 'src/useCase/product/deleteProduct.use-case
 import { GetProductUseCase } from 'src/useCase/product/getProduct.use-case';
 import { UpdateProductUseCase } from 'src/useCase/product/updateProduct.use-case';
 import { ProductRepository } from 'src/domain/repository/product.repository';
+import { GetProductByCategoryUseCase } from 'src/useCase/product/getProductByCategory.use-case';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Product])],
@@ -19,6 +20,7 @@ import { ProductRepository } from 'src/domain/repository/product.repository';
     UpdateProductUseCase,
     DeleteProductUseCase,
     GetProductByIdUseCase,
+    GetProductByCategoryUseCase,
     {
       provide: ProductRepository,
       useFactory: (dataSource: DataSource) =>

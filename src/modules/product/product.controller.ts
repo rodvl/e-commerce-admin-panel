@@ -17,6 +17,7 @@ import { CreateProductUseCase } from 'src/useCase/product/createProduct.use-case
 import { GetProductUseCase } from 'src/useCase/product/getProduct.use-case';
 import { UpdateProductUseCase } from 'src/useCase/product/updateProduct.use-case';
 import { DeleteProductUseCase } from 'src/useCase/product/deleteProduct.use-case';
+import { GetProductByCategoryUseCase } from 'src/useCase/product/getProductByCategory.use-case';
 
 @Controller('product')
 @ApiTags('Product')
@@ -26,11 +27,19 @@ export class ProductController {
     private readonly createProductUseCase: CreateProductUseCase,
     private readonly updateProductUseCase: UpdateProductUseCase,
     private readonly deleteProductUseCase: DeleteProductUseCase,
+    private readonly getProductByCategoryUseCase: GetProductByCategoryUseCase,
   ) {}
 
   @Get()
   get(): Promise<Product[]> {
     return this.getProductUseCase.execute();
+  }
+
+  @Get('/category/:id')
+  getByCategoryId(
+    @Param('id', new ParseUUIDPipe()) id: string,
+  ): Promise<Product[]> {
+    return this.getProductByCategoryUseCase.execute(id);
   }
 
   @Post()

@@ -24,6 +24,7 @@ export class Migration1723026635153 implements MigrationInterface {
           {
             name: 'imageId',
             type: 'uuid',
+            isNullable: true,
           },
           {
             name: 'price',
