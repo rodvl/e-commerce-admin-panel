@@ -21,6 +21,7 @@ export const typeOrmAsyncConfig: TypeOrmModuleAsyncOptions = {
       migrations: [__dirname + '/migration/*.ts'],
       migrationsRun: false,
       autoLoadEntities: true,
+      ssl: true,
     };
   },
 };

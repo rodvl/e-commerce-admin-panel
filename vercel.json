@@ -1,0 +1,23 @@
+{
+    "version": 2,
+    "env": {
+        "DATABASE_HOST": "DATABASE_HOST",
+        "DATABASE_PORT":"DATABASE_PORT",
+        "DATABASE_USERNAME":"DATABASE_USERNAME",
+        "DATABASE_PASSWORD":"DATABASE_PASSWORD",
+        "DATABASE_DATABASE":"DATABASE_DATABASE"
+    },
+    "builds": [
+        {
+            "src": "dist/main.js",
+            "use": "@vercel/node"
+        }
+    ],
+    "routes":[
+        {
+            "src": "/.*",
+            "dest": "dist/main.js",
+            "methods": ["GET", "POST", "PUT", "DELETE"]
+        }
+    ]
+}
