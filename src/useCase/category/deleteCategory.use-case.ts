@@ -22,7 +22,7 @@ export class DeleteCategoryUseCase {
       getCategoryPromise,
     ]);
 
-    if (products.length === 0) {
+    if (products.length > 0) {
       throw new HttpException(
         DefaultErrorMessages.UNABLE_TO_PERFORM('delete-category'),
         HttpStatus.BAD_REQUEST,

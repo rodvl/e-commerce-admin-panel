@@ -1,5 +1,5 @@
 import { Category } from 'src/domain/entity/category.entity';
-import { GetCategoryByIdCategoryUseCase } from './getCategoryByid.use-case';
+import { GetProductByIdUseCase } from './getProductByid.use-case';
 
 describe('Get category by id Use Case', () => {
   const mockRepositoryReturn: Category = {
@@ -7,13 +7,13 @@ describe('Get category by id Use Case', () => {
     name: 'teste',
   };
 
-  const CategoryRepositoryStub = jest.fn().mockImplementation(() => ({
+  const ProductRepositoryStub = jest.fn().mockImplementation(() => ({
     findById: jest.fn(),
   }));
 
   it('success get category', async () => {
-    const categoryRepositoryStub = new CategoryRepositoryStub();
-    const getCategoriesUseCase = new GetCategoryByIdCategoryUseCase(
+    const categoryRepositoryStub = new ProductRepositoryStub();
+    const getCategoriesUseCase = new GetProductByIdUseCase(
       categoryRepositoryStub,
     );
 

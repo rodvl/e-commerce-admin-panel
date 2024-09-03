@@ -1,5 +1,5 @@
 import { Category } from 'src/domain/entity/category.entity';
-import { GetCategoriesUseCase } from './getCategories.use-case';
+import { GetProductUseCase } from './getProduct.use-case';
 
 describe('Get categories Use Case', () => {
   const mockRepositoryReturn: Category[] = [
@@ -19,9 +19,7 @@ describe('Get categories Use Case', () => {
 
   it('success list category', async () => {
     const categoryRepositoryStub = new CategoryRepositoryStub();
-    const getCategoriesUseCase = new GetCategoriesUseCase(
-      categoryRepositoryStub,
-    );
+    const getCategoriesUseCase = new GetProductUseCase(categoryRepositoryStub);
 
     jest
       .spyOn(categoryRepositoryStub, 'findAll')
